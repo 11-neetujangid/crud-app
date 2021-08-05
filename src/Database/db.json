@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Neetu",
+      "email": "Neetu@gmail.com",
+      "city": "Indore",
+      "field": "IT"
+    },
+    {
+      "id": "2",
+      "name": "Kaju",
+      "email": "Kaju@gmail.com",
+      "city": "Indore",
+      "field": "IT"
+    }
+  ]
+}
