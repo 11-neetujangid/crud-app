@@ -1,6 +1,6 @@
-import {useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { editUsers, getUserid } from '../Service/api';
+import { editUsers, getUserById } from '../Service/api';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -8,7 +8,8 @@ const initialValue = {
     name: '',
     email: '',
     city: '',
-    field: ''
+    field: '',
+    password: ''
 }
 
 
@@ -17,14 +18,14 @@ const EditUsers = () => {
     const dispatch = useDispatch()
 
     const [user, setUser] = useState(initialValue);
-    const {name, email, city, field } = user;
-    
+    const { name, email, city, field, password } = user;
+
     const { id } = useParams();
     console.log(id)
 
 
     useEffect(() => {
-      dispatch(getUserid(id))
+        dispatch(getUserById(id))
     }, []);
 
 
@@ -40,7 +41,7 @@ const EditUsers = () => {
 
     const editUserDetails = () => {
         editUsers(id, user);
-        history.push('/');
+        history.push('/user');
     }
 
     return (
@@ -49,9 +50,11 @@ const EditUsers = () => {
             <form>
 
                 Name:<input name="name" type="text" defaultValue={users.name} onChange={(e) => onchangeInput(e)} /><br></br>
-                Email <input name="email" type="email"  defaultValue={users.email} onChange={onchangeInput} /><br></br>
-                City<input name="city" type="text" defaultValue={users.city}  onChange={onchangeInput} /><br></br>
+                Email <input name="email" type="email" defaultValue={users.email} onChange={onchangeInput} /><br></br>
+                City<input name="city" type="text" defaultValue={users.city} onChange={onchangeInput} /><br></br>
                 Field<input name="field" type="text" defaultValue={users.field} onChange={onchangeInput} /><br></br>
+                Password<input name="password" type="password" defaultValue={users.password} onChange={onchangeInput} /><br></br>
+
                 <button type="submit" onClick={() => editUserDetails()}> Update </button>
             </form>
         </div>

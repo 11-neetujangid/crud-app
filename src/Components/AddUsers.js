@@ -25,7 +25,7 @@ const AddUsers = () => {
 
     const addUserDetails = () => {
         addUser(user);
-        history.push('./')
+        history.push('/')
     }
     return (
         <form>

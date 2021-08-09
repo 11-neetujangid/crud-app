@@ -5,7 +5,8 @@
       "name": "Neetu",
       "email": "Neetu@gmail.com",
       "city": "Indore",
-      "field": "IT"
+      "field": "IT",
+      "password":"kjjkhjd"
     },
     {
       "id": "2",
@@ -13,6 +14,15 @@
       "email": "Kaju@gmail.com",
       "city": "Indore",
       "field": "IT"
+    },
+   
+    {
+      "name": "Neetu Jangid",
+      "email": "jangidneetu114@gmail.com",
+      "city": "Indore",
+      "field": "CS",
+      "password": "3i47",
+      "id": "YB4WU79"
     }
   ]
 }

@@ -10,13 +10,14 @@ const request = axios.create({
 export const getUsers = () => async (dispatch, getState) => {
     try {
         const response = await request.get('/users');
+        // console.log(response)
         dispatch(setUser(response.data));
 
     } catch (err) {
         console.log(err);
     }
 }
-export const getUserid = (id) => async (dispatch, getState) => {
+export const getUserById = (id) => async (dispatch, getState) => {
     try {
         const response = await request.get(`/users/${id}`);
         dispatch(editUser(response.data));
@@ -25,17 +26,16 @@ export const getUserid = (id) => async (dispatch, getState) => {
         console.log(err);
     }
 }
-export const getuser = async (id) => {
-
-    return await axios.get(`${url}/${id}`);
-}
-
 export const addUser = async (user) => {
+    console.log(user)
     return await axios.post(`${url}/add`, user);
 
 }
 export const deleteUser = async (id) => {
-    return await axios.delete(`${url}/${id}`)
+    console.log(id)
+   const a= await axios.delete(`${url}/${id}`);
+   console.log(a)
+    
 }
 
 export const editUsers = (id, user) => async (dispatch, getState) => {
@@ -46,4 +46,9 @@ export const editUsers = (id, user) => async (dispatch, getState) => {
     } catch (err) {
         console.log(err);
     }
+}
+
+export const loginUser = async (user)=>{
+    console.log(user)
+    return await axios.post(`${url}/signin`, user);
 }
