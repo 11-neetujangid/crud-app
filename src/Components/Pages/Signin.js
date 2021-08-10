@@ -11,23 +11,25 @@ const Signup = () => {
     const history = useHistory();
     const [user, setUser] = useState(initialState);
     const { email, password } = user;
+  
 
     const onValueChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(user);
     }
+    const loginUserDetails = () => {
+        // e.preventDefault();
+        const res=  loginUser(user);
+        console.log(res);
 
-    const addUserDetails = () => {
-        loginUser(user);
-        history.push('/user')
     }
     return (
         <form>
             <h2>Login Page</h2>
             Email <input name="email" type="email" onChange={(e) => onValueChange(e)} value={email} /><br></br>
             Password<input name="password" type="password" onChange={(e) => onValueChange(e)} value={password} /><br></br>
-            <button type="submit" className="btn btn-outline-primary" onClick={() => addUserDetails()} >Login</button>
+            <button type="submit" className="btn btn-outline-primary" onClick={loginUserDetails} >Login</button>
             {/* <Button variant="outline-primary" onClick={() => addUserDetails()}>Add User</Button> */}
         </form>
     )

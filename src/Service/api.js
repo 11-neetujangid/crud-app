@@ -17,6 +17,15 @@ export const getUsers = () => async (dispatch, getState) => {
         console.log(err);
     }
 }
+export const loginUser = async (user) => {
+    console.log(user)
+    const res = await axios.post(`${url}/signin`, user);
+    window.localStorage.setItem('access_token', res.data.token);
+    console.log(res.data);
+    return res;
+
+}
+
 export const getUserById = (id) => async (dispatch, getState) => {
     try {
         const response = await request.get(`/users/${id}`);
@@ -33,9 +42,9 @@ export const addUser = async (user) => {
 }
 export const deleteUser = async (id) => {
     console.log(id)
-   const a= await axios.delete(`${url}/${id}`);
-   console.log(a)
-    
+    const a = await axios.delete(`${url}/${id}`);
+    console.log(a)
+
 }
 
 export const editUsers = (id, user) => async (dispatch, getState) => {
@@ -48,7 +57,3 @@ export const editUsers = (id, user) => async (dispatch, getState) => {
     }
 }
 
-export const loginUser = async (user)=>{
-    console.log(user)
-    return await axios.post(`${url}/signin`, user);
-}
