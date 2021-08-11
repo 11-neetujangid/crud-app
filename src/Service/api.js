@@ -17,7 +17,7 @@ export const getUsers = () => async (dispatch, getState) => {
         console.log(err);
     }
 }
-<<<<<<< HEAD
+
 export const loginUser = (user) => async (dispatch, getState) => {
     console.log(user)
     try {
@@ -29,15 +29,8 @@ export const loginUser = (user) => async (dispatch, getState) => {
     } catch (err) {
         console.log(err);
     }
-=======
-export const loginUser = async (user) => {
-    console.log(user)
-    const res = await axios.post(`${url}/signin`, user);
-    window.localStorage.setItem('access_token', res.data.token);
-    console.log(res.data);
-    return res;
+}
 
->>>>>>> a2042107a4746a2521f6a1a0eb77a7cbce32b7ec
 }
 
 export const getUserById = (id) => async (dispatch, getState) => {
