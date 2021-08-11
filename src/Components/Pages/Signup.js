@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { addUser } from "../../Service/api";
 import { useHistory } from "react-router";
-<<<<<<< HEAD
+
 import { useSelector } from "react-redux";
-=======
->>>>>>> a2042107a4746a2521f6a1a0eb77a7cbce32b7ec
+
 // import { Button } from "react-bootstrap";
 
 const initialState = {
@@ -26,28 +25,27 @@ const Signup = () => {
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(user);
     }
-<<<<<<< HEAD
+
     const login= useSelector(state => state.login);
     console.log(login)
-=======
->>>>>>> a2042107a4746a2521f6a1a0eb77a7cbce32b7ec
+
 
     const addUserDetails = () => {
         
         addUser(user);
         history.push('/signin')
     }
-<<<<<<< HEAD
+
     const users = useSelector(state => state.login);
     console.log(users);
     return (
         <>
         <h2 >SignUp Page</h2>
-=======
+
     return (
         <>
         <h2 >SignUP Page</h2>
->>>>>>> a2042107a4746a2521f6a1a0eb77a7cbce32b7ec
+
         <form onSubmit={() => addUserDetails()}>
             Name:<input name="name" type="text" onChange={(e) => onValueChange(e)} value ={name}/><br></br>
             Email <input name="email" type="email" onChange={(e) => onValueChange(e)} value ={email}/><br></br>
@@ -62,13 +60,6 @@ const Signup = () => {
     )
 }
 export default Signup;
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> a2042107a4746a2521f6a1a0eb77a7cbce32b7ec
 
 
 
