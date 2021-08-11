@@ -1,45 +1,49 @@
 import { useState } from "react";
 import { loginUser } from "../../Service/api";
 import { useHistory } from "react-router";
-// import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-const initialState = {
+
+const initialValue = {
+  
     email: '',
     password: ''
 }
-const Signup = () => {
+const Signin = () =>{
     const history = useHistory();
-    const [user, setUser] = useState(initialState);
+    const dispatch = useDispatch()
+
+    const [user, setUser] = useState(initialValue);
     const { email, password } = user;
-  
 
-    const onValueChange = (e) => {
-        // console.log(e.target.value);
+    const onchangeInput = (e) => {
+     
         setUser({ ...user, [e.target.name]: e.target.value })
-        console.log(user);
-    }
-    const loginUserDetails = () => {
-        // e.preventDefault();
-        const res=  loginUser(user);
-        console.log(res);
+        console.log(user)
 
     }
+    const editUserDetails = () => {
+        dispatch(loginUser(user))
+        history.push('/user');
+    }
+    const users = useSelector((state => state.token));
+    console.log(users);
+
     return (
-        <form>
-            <h2>Login Page</h2>
-            Email <input name="email" type="email" onChange={(e) => onValueChange(e)} value={email} /><br></br>
-            Password<input name="password" type="password" onChange={(e) => onValueChange(e)} value={password} /><br></br>
-            <button type="submit" className="btn btn-outline-primary" onClick={loginUserDetails} >Login</button>
-            {/* <Button variant="outline-primary" onClick={() => addUserDetails()}>Add User</Button> */}
-        </form>
+        <div>
+
+            <form>
+               <h2>Login Page</h2>
+                Email <input name="email" type="email" value={email} onChange={onchangeInput} /><br></br>  
+                Password<input name="password" type="password" value ={password} onChange={onchangeInput} /><br></br>
+                <button type="submit" onClick={() => editUserDetails()}> Login </button>
+            </form>
+        </div>
     )
 }
-export default Signup;
 
-
-
-
-
+export default Signin;
 
 
 

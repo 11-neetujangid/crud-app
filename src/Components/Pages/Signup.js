@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { addUser } from "../../Service/api";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 // import { Button } from "react-bootstrap";
 
 const initialState = {
@@ -22,15 +23,19 @@ const Signup = () => {
         setUser({ ...user, [e.target.name]: e.target.value })
         console.log(user);
     }
+    const login= useSelector(state => state.login);
+    console.log(login)
 
     const addUserDetails = () => {
         
         addUser(user);
         history.push('/signin')
     }
+    const users = useSelector(state => state.login);
+    console.log(users);
     return (
         <>
-        <h2 >SignUP Page</h2>
+        <h2 >SignUp Page</h2>
         <form onSubmit={() => addUserDetails()}>
             Name:<input name="name" type="text" onChange={(e) => onValueChange(e)} value ={name}/><br></br>
             Email <input name="email" type="email" onChange={(e) => onValueChange(e)} value ={email}/><br></br>

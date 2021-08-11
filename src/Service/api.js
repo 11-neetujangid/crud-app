@@ -1,6 +1,6 @@
 import axios from "axios";
-import { setUser, editUser } from "../Actions/action";
-
+import { setUser, editUser, SignInUser } from "../Actions/action";
+import { useDispatch } from "react-redux";
 const url = "http://localhost:3001/users";
 
 const request = axios.create({
@@ -17,13 +17,17 @@ export const getUsers = () => async (dispatch, getState) => {
         console.log(err);
     }
 }
-export const loginUser = async (user) => {
+export const loginUser = (user) => async (dispatch, getState) => {
     console.log(user)
-    const res = await axios.post(`${url}/signin`, user);
-    window.localStorage.setItem('access_token', res.data.token);
-    console.log(res.data);
-    return res;
+    try {
+        const response = await axios.post(`${url}/signin`, user);
+        console.log(response.data);
+        // window.localStorage.setItem('access_token', response.data.token);
+        dispatch(SignInUser(response.data));
 
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const getUserById = (id) => async (dispatch, getState) => {
@@ -35,11 +39,13 @@ export const getUserById = (id) => async (dispatch, getState) => {
         console.log(err);
     }
 }
+
 export const addUser = async (user) => {
     console.log(user)
     return await axios.post(`${url}/add`, user);
 
 }
+
 export const deleteUser = async (id) => {
     console.log(id)
     const a = await axios.delete(`${url}/${id}`);
