@@ -24,7 +24,7 @@ const AddUsers = () => {
     }
 
     const addUserDetails = () => {
-        addUser(user);
+          dispatch(addUser(user));
         history.push('/')
     }
     return (

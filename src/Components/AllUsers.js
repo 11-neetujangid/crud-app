@@ -1,7 +1,8 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { getUsers, deleteUser, getuser } from "../Service/api";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
+
 
 const AllUsers = () => {
 
@@ -11,7 +12,6 @@ const AllUsers = () => {
         dispatch(getUsers());
     }, [])
 
-
     const records = useSelector((state => state.users));
 
     const onClickEdit = (Id) => {
@@ -20,7 +20,7 @@ const AllUsers = () => {
     }
 
     const deleteUserData = async (id) => {
-        await deleteUser(id);
+        await dispatch(deleteUser(id));
 
     }
 
@@ -35,7 +35,6 @@ const AllUsers = () => {
                         <th>city</th>
                         <th>field</th>
                         <th>Password</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -48,9 +47,8 @@ const AllUsers = () => {
                                 <td>{record.city}</td>
                                 <td>{record.field}</td>
                                 <td>{record.password}</td>
-                                <td><button onClick={() => onClickEdit(record._id)}>Edit</button></td>
-                                <td><button onClick={() => deleteUserData(record._id)}>Delete</button></td>
-
+                                <td> <button type="button" className="btn btn-outline-primary" onClick={() => onClickEdit(record._id)}>Edit</button></td>
+                                <td><button type="button" className="btn btn-outline-primary" onClick={() => deleteUserData(record._id)}>Delete</button></td>
                             </tr>
                         ))
                     }
