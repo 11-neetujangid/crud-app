@@ -28,6 +28,10 @@ export const SignInUser = (payload) => {
     localStorage.setItem("token", payload.token);
     localStorage.setItem("id", payload.id)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ca40a536d0ce6cc6ea1423b5ba094230f12d464
     localStorage.setItem("name", payload.name)
     return { type: SIGNIN_USERS, payload }
 }
@@ -51,4 +55,16 @@ export const addCommentData = (payload) => {
 };
 export const setComments = (payload) => ({ type: SET_COMMENT, payload: payload })
 
+<<<<<<< HEAD
+=======
+
+export const SignInUser = (payload) =>{
+    console.log(payload.token)
+    localStorage.setItem("token", payload.token)
+    return{type : SIGNIN_USERS, payload}
+}
+
+
+
+>>>>>>> 1ca40a536d0ce6cc6ea1423b5ba094230f12d464
 

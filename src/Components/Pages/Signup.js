@@ -3,6 +3,11 @@ import { useHistory} from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
 import { signUpUser } from '../../Actions/action'
+<<<<<<< HEAD
+=======
+// import { Button } from "react-bootstrap";
+
+>>>>>>> 1ca40a536d0ce6cc6ea1423b5ba094230f12d464
 
 
 const Signup = () => {
@@ -37,12 +42,15 @@ const Signup = () => {
             Password<input name="password" type="password" onChange={(e) => onValueChange(e)} /><br></br>
             <Button variant="primary" onClick={() => addUserDetails()}>Sign Up</Button>
         </form>
+<<<<<<< HEAD
 
         </>
     )
 }
 export default Signup;
 
+=======
+>>>>>>> 1ca40a536d0ce6cc6ea1423b5ba094230f12d464
 
 
 
