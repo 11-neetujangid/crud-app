@@ -28,18 +28,9 @@ const EditPost = () => {
         dispatch(editPost({ ...edit, [e.target.name]: e.target.value }));
     }
 
-    const editUserDetails = (id) => {
-        console.log(edit);
-        console.log(id)
-
-        if (id == userId) {
+    const editUserDetails = () => {
             dispatch(editPosts(id, edit));
             history.push('/post');
-        } else {
-            console.log("userId and postId is not same");
-            // history.push('/post');
-        }
-       
     }
     return (
         <div>

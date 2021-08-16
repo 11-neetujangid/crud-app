@@ -7,11 +7,12 @@ const request = axios.create({
     baseURL: 'http://localhost:3001'
 });
 
+
 // get users data --->
 export const getUsers = () => async (dispatch, getState) => {
     try {
         const response = await request.get('/users');
-        // console.log(response)
+        console.log(response.data)
         dispatch(setUser(response.data));
 
     } catch (err) {
@@ -19,10 +20,7 @@ export const getUsers = () => async (dispatch, getState) => {
     }
 }
 
-<<<<<<< HEAD
 // signin users-->
-=======
->>>>>>> fcd1258099bb8c7a2d13db966e3d251b29fa3a9c
 export const loginUser = (user) => async (dispatch, getState) => {
     console.log(user)
     try {
@@ -33,11 +31,6 @@ export const loginUser = (user) => async (dispatch, getState) => {
     } catch (err) {
         console.log(err);
     }
-<<<<<<< HEAD
-=======
-}
-
->>>>>>> fcd1258099bb8c7a2d13db966e3d251b29fa3a9c
 }
 // get users data by id-->
 export const getUserById = (id) => async (dispatch, getState) => {

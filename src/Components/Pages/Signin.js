@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { loginUser } from "../../Service/api";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,7 +22,7 @@ const Signin = () => {
         history.push('/user');
     }
     const users = useSelector((state => state.token));
-    // console.log(users);
+    console.log(users);
 
     return (
         <div>

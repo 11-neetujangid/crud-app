@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getUsers, deleteUser, getuser } from "../Service/api";
+import { getUsers, deleteUser} from "../Service/api";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -40,7 +40,7 @@ const AllUsers = () => {
                 <tbody>
                     {
                         records.map(record => (
-                            <tr>
+                            <tr key ={record.id}>
                                 <td>{record._id}</td>
                                 <td>{record.name}</td>
                                 <td>{record.email}</td>

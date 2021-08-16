@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Link, Switch ,Route} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import AllUsers from './Components/AllUsers';
 import EditUsers from './Components/EditUsers';
 import { Provider } from 'react-redux';
@@ -18,20 +18,40 @@ import Addposts from './Components/UsersPost/AddPosts';
 import PostComment from './Components/UserComment/AddComment'
 import AllComments from './Components/UserComment/AllComments'
 import EditPost from './Components/UsersPost/EditPost'
-import NotFound from './Components/NotFound'
+import NotFound from './Components/NotFound';
+import SearchBar from './Components/SearchBar';
+
 
 const store = createStore(reducer, applyMiddleware(thunk));
 function App() {
+  const token = localStorage.getItem("token")
+  console.log(token);
 
   return (
     <Provider store={store}>
+
       <div className="App">
         <Router>
           <header >
-            <Link to='/'>Sign Up</Link><br />
-            <Link to='/logout'>Logout</Link>{' '}
-            <Link to='/post'>All Post</Link>{' '}
-            <Link to='/addpost'>Add Post</Link>
+            {!token ?
+              (
+                <li>
+                  <Link to='/'>Sign Up</Link> {' '}
+                  <Link to='/signin'>Signin In</Link>
+                </li>
+              )
+              : (
+                <li>
+                  <Link to='/post'>All Post</Link>{' '}
+                  <Link to='/addpost'>Add Post</Link>{' '}
+                  <Link to='/logout'>Logout</Link>{' '}
+                  <Link to='/Comment'>All Comments</Link>{' '}
+
+                </li>
+              )
+            }
+
+            <SearchBar />
 
             <Switch>
               <PrivateRoute exact path="/user" component={AllUsers} />
@@ -44,9 +64,10 @@ function App() {
               <PrivateRoute exact path="/EditPost/:id" component={EditPost} />
               <PrivateRoute exact path="/Comment/:id" component={PostComment} />
               <PrivateRoute exact path="/Comment" component={AllComments} />
-              <Route component={NotFound}/>
-
+              <Route exact path="/search" component={SearchBar} />
+              <Route component={NotFound} />
             </Switch>
+
           </header>
         </Router>
       </div>
@@ -54,6 +75,6 @@ function App() {
   );
 
 }
-// }
+
 
 export default App;

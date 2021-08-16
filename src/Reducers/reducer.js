@@ -1,5 +1,5 @@
 import {
-    SET_USERS, EDIT_USERS, SIGNIN_USERS, SET_POSTS, SIGNUP_USERS, SET_DATA, ADD_POST_DATA, ADD_COMMENT_DATA, SET_COMMENT, EDIT_POSTS
+    SET_USERS, EDIT_USERS, SIGNIN_USERS, SET_POSTS, SIGNUP_USERS, SET_DATA, ADD_POST_DATA, ADD_COMMENT_DATA, SET_COMMENT, EDIT_POSTS, USER_LOGOUT
 } from "../Actions/action";
 
 const initialState = {
@@ -123,6 +123,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 comments: action.payload,
             }
+            case USER_LOGOUT:
+                return {
+                    ...state,
+                    token: null,
+                }
 
         default:
             return state;

@@ -3,7 +3,6 @@ export const SET_USERS = 'SET_USERS';
 export const EDIT_USERS = "EDIT_USERS";
 
 export const SIGNIN_USERS = "SIGNIN_USERS";
-<<<<<<< HEAD
 export const SET_DATA = 'SET_DATA';
 export const SIGNUP_USERS = "SIGNUP_USERS";
 
@@ -13,15 +12,15 @@ export const EDIT_POSTS = "EDIT_POSTS";
 
 export const ADD_COMMENT_DATA = 'ADD_COMMENT_DATA';
 export const SET_COMMENT = "SET_COMMENT";
+export const USER_LOGOUT = "USER_LOGOUT";
 
 
+
+export const userLogout = (payload) => ({ type: USER_LOGOUT, payload: payload });
 
 
 export const setUser = (payload) => ({ type: SET_USERS, payload: payload });
 export const editUser = (payload) => ({ type: EDIT_USERS, payload: payload });
-=======
-
->>>>>>> fcd1258099bb8c7a2d13db966e3d251b29fa3a9c
 
 
 export const SignInUser = (payload) => {
@@ -29,7 +28,6 @@ export const SignInUser = (payload) => {
     localStorage.setItem("token", payload.token);
     localStorage.setItem("id", payload.id)
 
-<<<<<<< HEAD
     localStorage.setItem("name", payload.name)
     return { type: SIGNIN_USERS, payload }
 }
@@ -53,14 +51,4 @@ export const addCommentData = (payload) => {
 };
 export const setComments = (payload) => ({ type: SET_COMMENT, payload: payload })
 
-=======
-
-export const SignInUser = (payload) =>{
-    console.log(payload.token)
-    localStorage.setItem("token", payload.token)
-    return{type : SIGNIN_USERS, payload}
-}
-
-
->>>>>>> fcd1258099bb8c7a2d13db966e3d251b29fa3a9c
 
