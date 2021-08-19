@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route, NavLink } from 'react-router-dom';
 import AllUsers from './Components/AllUsers';
 import EditUsers from './Components/EditUsers';
 import { Provider } from 'react-redux';
@@ -15,11 +15,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import AllPosts from './Components/UsersPost/AllPosts'
 import Addposts from './Components/UsersPost/AddPosts';
-import PostComment from './Components/UserComment/AddComment'
+import AddComment from './Components/UserComment/AddComment'
 import AllComments from './Components/UserComment/AllComments'
 import EditPost from './Components/UsersPost/EditPost'
 import NotFound from './Components/NotFound';
 import SearchBar from './Components/SearchBar';
+import NavLinks from './Components/NavLinks'
 
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -33,26 +34,8 @@ function App() {
       <div className="App">
         <Router>
           <header >
-            {!token ?
-              (
-                <li>
-                  <Link to='/'>Sign Up</Link> {' '}
-                  <Link to='/signin'>Signin In</Link>
-                </li>
-              )
-              : (
-                <li>
-                  <Link to='/post'>All Post</Link>{' '}
-                  <Link to='/addpost'>Add Post</Link>{' '}
-                  <Link to='/logout'>Logout</Link>{' '}
-                  <Link to='/Comment'>All Comments</Link>{' '}
-
-                </li>
-              )
-            }
-
-            <SearchBar />
-
+            <NavLinks/>
+            {/* <SearchBar /> */}
             <Switch>
               <PrivateRoute exact path="/user" component={AllUsers} />
               <PrivateRoute exact path="/EditUsers/:id" component={EditUsers} />
@@ -62,9 +45,9 @@ function App() {
               <PrivateRoute exact path="/post" component={AllPosts} />
               <PrivateRoute exact path="/addpost" component={Addposts} />
               <PrivateRoute exact path="/EditPost/:id" component={EditPost} />
-              <PrivateRoute exact path="/Comment/:id" component={PostComment} />
+              <PrivateRoute exact path="/Comment/:id" component={AddComment} />
               <PrivateRoute exact path="/Comment" component={AllComments} />
-              <Route exact path="/search" component={SearchBar} />
+              <SearchBar />
               <Route component={NotFound} />
             </Switch>
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts} from "../../Service/api";
+import { getPosts } from "../../Service/api";
 
 const AllPosts = () => {
 
@@ -51,8 +51,7 @@ const AllPosts = () => {
 
                                 <td><button type="button" className="btn btn-outline-primary" onClick={() => onClickCommnet(record._id)}>Comment</button></td>
                                 {id == record.userId && (
-                                <button type="button" className="btn btn-outline-primary" onClick={() => onClickEdit(record._id)}>Edit</button>
-                                    
+                                    <button type="button" className="btn btn-outline-primary" onClick={() => onClickEdit(record._id)}>Edit</button>
                                 )}
                             </tr>
                         ))

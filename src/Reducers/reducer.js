@@ -2,6 +2,7 @@ import {
     SET_USERS, EDIT_USERS, SIGNIN_USERS, SET_POSTS, SIGNUP_USERS, SET_DATA, ADD_POST_DATA, ADD_COMMENT_DATA, SET_COMMENT, EDIT_POSTS, USER_LOGOUT
 } from "../Actions/action";
 
+
 const initialState = {
     records: {},
     users: [],
@@ -43,8 +44,8 @@ const initialState = {
         city: '',
         field: '',
         password: ''
-    }
-
+    },
+    
 }
 
 const reducer = (state = initialState, action) => {
