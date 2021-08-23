@@ -26,8 +26,8 @@ const AllUsers = () => {
 
     return (
         <div>
-            <table>
-                <thead>
+            <table style={{border:"2px solid #ddd" }}>
+                <thead style={{border:"1px solid #ddd" }}>
                     <tr>
                         <th>id</th>
                         <th>name</th>
@@ -40,7 +40,7 @@ const AllUsers = () => {
                 <tbody>
                     {
                         records.map(record => (
-                            <tr key ={record.id}>
+                            <tr key ={record.id} style={{border:"1px solid #ddd" }}>
                                 <td>{record._id}</td>
                                 <td>{record.name}</td>
                                 <td>{record.email}</td>

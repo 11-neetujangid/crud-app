@@ -29,8 +29,8 @@ const AllPosts = () => {
 
     return (
         <div>
-            <table>
-                <thead>
+            <table  style={{border:"2px solid #ddd" }}>
+                <thead  style={{border:"2px solid #ddd" }}>
                     <tr>
                         <th>id</th>
                         <th>Title</th>
@@ -43,7 +43,7 @@ const AllPosts = () => {
                 <tbody>
                     {
                         posts.map(record => (
-                            <tr>
+                            <tr style={{border:"2px solid #ddd" }}>
                                 <td>{record._id}</td>
                                 <td>{record.title}</td>
                                 <td>{record.body}</td>

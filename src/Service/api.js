@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setUser, editUser, SignInUser ,setPost ,signUpUser, setComments, editPost} from "../Actions/action";
+import { setUser, editUser, SignInUser ,setPost ,signUpUser, setComments, editPost, setTask, setDate} from "../Actions/action";
 
 const url = "http://localhost:3001/users";
 
@@ -149,7 +149,6 @@ export const editPosts = (id,user)=> async (dispatch, getState) =>{
     try {
         const response = await axios.put(`${url}/addPost/${id}`,user);
         console.log(response.data);
-         
         dispatch(editPost(response.data));
         return response;
 
@@ -157,4 +156,42 @@ export const editPosts = (id,user)=> async (dispatch, getState) =>{
         console.log(err);
     }  
 
+}
+// Add Task Data --->
+export const taskUser= (user) => async (dispatch, getState) => {
+    console.log(user)
+    try {
+        const response = await axios.post(`${url}/addtask`, user);
+        console.log(response.data);
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// get Tasks Data--->
+export const getTasks = () => async (dispatch, getState) => {
+    try {
+        
+        const response = await request.get(`/users/task`);
+        console.log(response.data)
+        dispatch(setTask(response.data));
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+export const dates= (user) => async (dispatch, getState) => {
+    console.log(user)
+    try {
+
+        const response = await request.get(`/users/dates`,user);
+        console.log(response.data)
+        dispatch(setDate(response.data));
+        // const response = await axios.get(`${url}/dates`, user);
+        // console.log(response.data);
+
+    } catch (err) {
+        console.log(err);
+    }
 }

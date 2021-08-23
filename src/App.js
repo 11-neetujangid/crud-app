@@ -21,6 +21,8 @@ import EditPost from './Components/UsersPost/EditPost'
 import NotFound from './Components/NotFound';
 import SearchBar from './Components/SearchBar';
 import NavLinks from './Components/NavLinks'
+import Task from './Components/Task/Task';
+import AllTasks from './Components/Task/AllTasks';
 
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -47,6 +49,9 @@ function App() {
               <PrivateRoute exact path="/EditPost/:id" component={EditPost} />
               <PrivateRoute exact path="/Comment/:id" component={AddComment} />
               <PrivateRoute exact path="/Comment" component={AllComments} />
+              <PrivateRoute exact path="/task" component={Task} />
+              <PrivateRoute exact path="/alltask" component={AllTasks} />
+
               <SearchBar />
               <Route component={NotFound} />
             </Switch>

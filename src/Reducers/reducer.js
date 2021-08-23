@@ -1,5 +1,6 @@
 import {
-    SET_USERS, EDIT_USERS, SIGNIN_USERS, SET_POSTS, SIGNUP_USERS, SET_DATA, ADD_POST_DATA, ADD_COMMENT_DATA, SET_COMMENT, EDIT_POSTS, USER_LOGOUT
+    SET_USERS, EDIT_USERS, SIGNIN_USERS, SET_POSTS, SIGNUP_USERS, SET_DATA, ADD_POST_DATA, ADD_COMMENT_DATA, SET_COMMENT, EDIT_POSTS, USER_LOGOUT, ADD_TASK_DATA,
+    SET_TASKS, ADD_DATE, SET_DATE
 } from "../Actions/action";
 
 
@@ -45,7 +46,21 @@ const initialState = {
         field: '',
         password: ''
     },
-    
+    task: {
+        title: '',
+        date: '',
+        startTime: '',
+        endTime: '',
+        user: localStorage.getItem("name"),
+    },
+    tasks: [],
+    dates: {
+        sDate:'',
+        eDate:''
+    },
+    date:[],
+
+
 }
 
 const reducer = (state = initialState, action) => {
@@ -117,19 +132,43 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 addComment: action.payload,
             }
-            
+
         case SET_COMMENT:
             console.log("comments", action.payload)
             return {
                 ...state,
                 comments: action.payload,
             }
-            case USER_LOGOUT:
+        case USER_LOGOUT:
+            return {
+                ...state,
+                token: null,
+            }
+        case ADD_TASK_DATA:
+            console.log("add task data", action.payload)
+            return {
+                ...state,
+                task: action.payload,
+
+            }
+        case SET_TASKS:
+            console.log("set tasks", action.payload)
+            return {
+                ...state,
+                tasks: action.payload,
+            }
+        case ADD_DATE:
+            console.log("date", action.payload)
+            return {
+                ...state,
+                dates: action.payload,
+
+            }
+            case SET_DATE:
                 return {
                     ...state,
-                    token: null,
+                    date: action.payload,
                 }
-
         default:
             return state;
     }

@@ -15,6 +15,16 @@ export const SET_COMMENT = "SET_COMMENT";
 export const USER_LOGOUT = "USER_LOGOUT";
 
 
+export const ADD_TASK_DATA = "ADD_TASK_DATA"
+export const SET_TASKS = 'SET_TASKS';
+
+export const ADD_DATE = 'ADD_DATE';
+export const SET_DATE= 'SET_DATE';
+
+
+
+
+
 export const userLogout = (payload) => ({ type: USER_LOGOUT, payload: payload });
 
 
@@ -51,3 +61,12 @@ export const addCommentData = (payload) => {
 export const setComments = (payload) => ({ type: SET_COMMENT, payload: payload })
 
 
+// Add Task Data -->
+export const addTaskData = (payload) => ({ type: ADD_TASK_DATA, payload: payload });
+
+
+export const setTask = (payload) => ({ type: SET_TASKS, payload: payload });
+
+
+export const addDate = (payload) => ({ type: ADD_DATE, payload: payload });
+export const setDate = (payload) => ({ type: SET_DATE, payload: payload });

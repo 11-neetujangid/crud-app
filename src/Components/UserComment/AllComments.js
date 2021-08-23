@@ -15,16 +15,16 @@ const AllComments = () => {
 
     return (
         <div>
-            <table>
-                <tr>
-                    <th>id</th>
+            <table  style={{border:"2px solid #ddd" }}>
+                <tr  style={{border:"2px solid #ddd" }}>
+                    <th >id</th>
                     <th>Comments</th>
                 </tr>
                 <tbody>
                     {
                         comments.map(record => (
-                            <tr>
-                                <td>{record._id}</td>
+                            <tr  style={{border:"2px solid #ddd" }}>
+                                <td >{record._id}</td>
                                 <td>{record.body}</td>
                             </tr>
                         ))
