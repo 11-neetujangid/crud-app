@@ -20,7 +20,7 @@ const SearchBar = () => {
     useEffect(() => {
         console.log("filter")
         setfilterData(Search.filter((user) => user.name.toLowerCase().includes(searchuser.toLowerCase())));
-        console.log("sbbbbb")
+   
     }, [searchuser])
     return (
         <div>

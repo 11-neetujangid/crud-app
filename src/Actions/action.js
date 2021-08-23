@@ -58,15 +58,15 @@ export const addCommentData = (payload) => {
     console.log(payload);
     return { type: ADD_COMMENT_DATA, payload: payload }
 };
-export const setComments = (payload) => ({ type: SET_COMMENT, payload: payload })
+export const setComments = (payload) => (console.log(payload),{ type: SET_COMMENT, payload: payload })
 
 
 // Add Task Data -->
-export const addTaskData = (payload) => ({ type: ADD_TASK_DATA, payload: payload });
+export const addTaskData = (payload) => (console.log(payload),{ type: ADD_TASK_DATA, payload: payload });
 
 
-export const setTask = (payload) => ({ type: SET_TASKS, payload: payload });
+export const setTask = (payload) => (console.log(payload),{ type: SET_TASKS, payload: payload });
 
 
-export const addDate = (payload) => ({ type: ADD_DATE, payload: payload });
-export const setDate = (payload) => ({ type: SET_DATE, payload: payload });
+export const addDate = (payload) => (console.log(payload),{ type: ADD_DATE, payload: payload });
+export const setDate = (payload) => (console.log(payload),{ type: SET_DATE, payload: payload });

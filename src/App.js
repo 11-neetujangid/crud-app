@@ -23,6 +23,7 @@ import SearchBar from './Components/SearchBar';
 import NavLinks from './Components/NavLinks'
 import Task from './Components/Task/Task';
 import AllTasks from './Components/Task/AllTasks';
+import Dates from './Components/Dates';
 
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -51,9 +52,11 @@ function App() {
               <PrivateRoute exact path="/Comment" component={AllComments} />
               <PrivateRoute exact path="/task" component={Task} />
               <PrivateRoute exact path="/alltask" component={AllTasks} />
+              <PrivateRoute exact path="/dates/:start" component={Dates} />
 
-              <SearchBar />
-              <Route component={NotFound} />
+
+              {/* <SearchBar /> */}
+              {/* <Route component={NotFound} /> */}
             </Switch>
 
           </header>
