@@ -52,7 +52,7 @@ function App() {
               <PrivateRoute exact path="/Comment" component={AllComments} />
               <PrivateRoute exact path="/task" component={Task} />
               <PrivateRoute exact path="/alltask" component={AllTasks} />
-              <PrivateRoute exact path="/dates/:start" component={Dates} />
+              <PrivateRoute exact path="/dates" component={Dates} />
 
 
               {/* <SearchBar /> */}

@@ -26,7 +26,7 @@ const AllTasks = () => {
     return (
         <div className="App-header">
     
-            <Dates />
+            {/* <Dates /> */}
             <br /> <h2>All Tasks</h2><br />
 
             <table style={{ border: "2px solid #ddd" }} >
